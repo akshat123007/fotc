@@ -29,7 +29,7 @@ This navigation bar menu links the user to the two of the following dashboards.
 Here you can search your desired location by typing location name in destination barand current location in first search bar. This page shows up on successful log in. It is the index page of our project.
 ###### Check Accessibility
 This page provides you the information about the accessibility features of your desired destination's location. After search you will be provided accesibility features of that place with images and their name and at bottom your name, email id and contact number will also be displayed.
-##### Search Location
+###### Search Location
 This website search your desired location through bing maps. we have accessed the API key of bing maps and use it for our searching process. After getting the desired location you can choose either you can see it normal map format or you can also watch directions and all other places in satellite view also.You can search your desired location by just speech recognition, for that you just have to click on mic button.
 ## Security and Data Privacy
 The session data is stored on the top of cookies and signed by the server cryptographically. Flask has been used to track the session data. The user's password is secured using Werkzeug. Session data is cleared on logging out successfully or once the server is turned off. Any data you entered for storage is completely private and visible only to you when logged in. No data is shared with or sold to any third-party.
@@ -47,8 +47,8 @@ The session data is stored on the top of cookies and signed by the server crypto
 - Bing maps API
 - psycopg2
 - gTTS API
-## Developers
-- [Abhishek Rawat]()
-- [Aieshah Nasir]()
-- [Akshat Singh Gour]()
-- [Akshat Singh Rathore]()
+## Contributors
+- [Abhishek Rawat](https://github.com/abhishek1524)
+- [Aieshah Nasir](https://github.com/aie007)
+- [Akshat Singh Gour](https://github.com/akshat123007)
+- [Akshat Singh Rathore](https://github.com/AkshatSR2003)
