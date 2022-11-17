@@ -15,7 +15,7 @@ Users{
     varchar email
     varchar phone
 }
-Features ||--|{ Property : has
+Features }|--|| Property : has
 Features{
     integer id PK
     varchar property "Property as in Bing Maps API"
