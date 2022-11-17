@@ -57,6 +57,7 @@ This page provides you the information about the accessibility features of your 
 # Feature's image![Accessibility feature image](https://user-images.githubusercontent.com/105162599/202505969-d650c565-b919-47bb-8df2-c12982179fb9.png)
 ###### Search Location
 This website search your desired location through bing maps. we have accessed the API key of bing maps and use it for our searching process. After getting the desired location you can choose either you can see it normal map format or you can also watch directions and all other places in satellite view also.You can search your desired location by just speech recognition, for that you just have to click on mic button.
+
 ## Security and Data Privacy
 The session data is stored on the top of cookies and signed by the server cryptographically. Flask has been used to track the session data. The user's password is secured using Werkzeug. Session data is cleared on logging out successfully or once the server is turned off. Any data you entered for storage is completely private and visible only to you when logged in. No data is shared with or sold to any third-party.
 ## Programming Technologies used
