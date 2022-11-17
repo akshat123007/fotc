@@ -1,8 +1,32 @@
 # FoTc
 #### Video Demo: [watch here on YouTube](https://youtu.be/0eyZIVjKnn8)
-#### Research paper:[Read here in IRJMETS website](https://www.irjmets.com/paperdetail.php?paperId=ad8ff81be5bdbbe0f7611f4b8bba1855&title=Web+assistance+for+physically+disabled+people&authpr=Abhishek+Rawat)
+#### Research paper:[Read here on IRJMETS website](https://www.irjmets.com/paperdetail.php?paperId=ad8ff81be5bdbbe0f7611f4b8bba1855&title=Web+assistance+for+physically+disabled+people&authpr=Abhishek+Rawat)
 #### Description:
-In this Project we’ve created a smart map with Bing Maps API with Python.We are developing of a centralized platform with web-based portal for storing and sharing of information about accessible buildings,public places,offices. The system will also store their physical locations so that the information can also be shown on a on-screen map. The system will store and share information about the accessibility features viz. provisions of ramps, handrails, accessible toilets, Braille signage, accessible counters, lifts, wheelchairs etc. The system will store and share photographs and videos of such places. Registration of accessible buildings or locations by the owners (private & Government both). Display of information to the disabled persons as per search criteria on a map based platform, like google map.
+This project is a Flask app which displays the accessiblity features of physical locations on Earth and an assosciated smart Bing Map integrated using JavaScript. We aim to develop a centralized web-based portal for storing and sharing of information about accessible buildings, public places, offices. The system will also store their physical locations so that the information can also be shown on a on-screen map. The system will store and share information about the accessibility features viz. provisions of ramps, handrails, accessible toilets, Braille signage, accessible counters, lifts, wheelchairs etc. The system will store and share photographs and videos of such places. Registration of accessible buildings or locations by the owners (private & government both). Display of information to the disabled persons as per search criteria on a map based platform.
+## Database Schema
+```mermaid
+ erDiagram 
+Users ||--|{ Property : owns
+Users{
+    integer id PK "The user id "
+    varchar fullname "NOT NULL" "User's full name"
+    varchar username "NOT NULL"
+    varchar userpass "NOT NULL" "User's hashed password"
+    varchar email "NOT NULL"
+    varchar phone "NOT NULL"
+}
+Features ||--|{ Property : has
+Features{
+    integer id PK
+    varchar property "NOT NULL" "Property as in Bing Maps API"
+    numeric latitude "NOT NULL" "Latitude of property as per Bing Maps"
+    numeric longitude "NOT NULL" "Longitude of property as per Bing Maps"
+    varchar fullname "NOT NULL" "Full registered name of property"
+    varchar featurename "NOT NULL" "Features available at property"
+    varchar images "NOT NULL" "path to the image saved on local filesystem"
+    integer u_id FK
+}
+```
 ## Layout
 - Register
 - Log In
@@ -22,9 +46,9 @@ This menu links to all pages for updating personal details of the user and it on
 ###### Update Personal Details
 Here, the user can update you user name, contact number, email. This page redirects the user to the index page or the personal dashboard. Your new information will be stored instantly in database.
 ###### Remove Existing Account
-Here, one can delete the account if needed. This page, in particular, asks for a confirmation before deleting, thus preventing accidental changes and data loss.
+Here, one can delete his account if necessary. All data associated with the user is discarded from the database upon the deletion. This page, in particular, asks for a confirmation before deleting, thus preventing accidental changes and data loss.
 #### Navigation
-This navigation bar menu links the user to the two of the following dashboards.
+This navigation bar menu links the user to following pages.
 ###### Get Directions
 Here you can search your desired location by typing location name in destination barand current location in first search bar. This page shows up on successful log in. It is the index page of our project.
 ###### Check Accessibility
