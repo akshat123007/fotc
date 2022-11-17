@@ -53,6 +53,8 @@ This navigation bar menu links the user to following pages.
 Here you can search your desired location by typing location name in destination barand current location in first search bar. This page shows up on successful log in. It is the index page of our project.
 ###### Check Accessibility
 This page provides you the information about the accessibility features of your desired destination's location. After search you will be provided accesibility features of that place with images and their name and at bottom your name, email id and contact number will also be displayed.
+
+- ![Accessibility feature image] (fotcimg.png)
 ###### Search Location
 This website search your desired location through bing maps. we have accessed the API key of bing maps and use it for our searching process. After getting the desired location you can choose either you can see it normal map format or you can also watch directions and all other places in satellite view also.You can search your desired location by just speech recognition, for that you just have to click on mic button.
 ## Security and Data Privacy
