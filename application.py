@@ -12,7 +12,7 @@ from forms import LoginForm, RegistrationForm_po, ContactForm, RegistrationForm
 import db_handler
 from helpers import login_required 
 
-# configure application
+# configure application.
 app = Flask(__name__)
 
 # ensure templates are auto-reloaded
