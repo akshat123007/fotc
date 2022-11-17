@@ -6,12 +6,12 @@ In this Project we’ve created a smart map with Bing Maps API with Python.We ar
 ## Layout
 - Register
 - Log In
-    - upload features
+    - Upload Features
 - Update
 - Navigate
-    - check accessibility
-    - get directions
-    - search location
+    - Check Accessibility
+    - Get Directions
+    - Search Location
 - Contact Us
 #### Register
 This is a registration page where one can easily sign up for a new account. This will redirect to update personal details page.
