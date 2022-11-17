@@ -1,6 +1,6 @@
 # FoTc
 #### Video Demo: [watch here on YouTube](https://youtu.be/0eyZIVjKnn8)
-#### Research paper:[Read here on IRJMETS website](https://www.irjmets.com/paperdetail.php?paperId=ad8ff81be5bdbbe0f7611f4b8bba1855&title=Web+assistance+for+physically+disabled+people&authpr=Abhishek+Rawat)
+#### Research paper: [Read here on IRJMETS website](https://www.irjmets.com/paperdetail.php?paperId=ad8ff81be5bdbbe0f7611f4b8bba1855&title=Web+assistance+for+physically+disabled+people&authpr=Abhishek+Rawat)
 #### Description:
 This project is a Flask app which displays the accessiblity features of physical locations on Earth and an assosciated smart Bing Map integrated using JavaScript. We aim to develop a centralized web-based portal for storing and sharing of information about accessible buildings, public places, offices. The system will also store their physical locations so that the information can also be shown on a on-screen map. The system will store and share information about the accessibility features viz. provisions of ramps, handrails, accessible toilets, Braille signage, accessible counters, lifts, wheelchairs etc. The system will store and share photographs and videos of such places. Registration of accessible buildings or locations by the owners (private & government both). Display of information to the disabled persons as per search criteria on a map based platform.
 ## Database Schema
@@ -9,11 +9,11 @@ This project is a Flask app which displays the accessiblity features of physical
 Users ||--|{ Property : owns
 Users{
     integer id PK "The user id "
-    varchar fullname "NOT NULL" "User's full name"
-    varchar username "NOT NULL"
-    varchar userpass "NOT NULL" "User's hashed password"
-    varchar email "NOT NULL"
-    varchar phone "NOT NULL"
+    varchar fullname "User's full name"
+    varchar username
+    varchar userpass "User's hashed password"
+    varchar email
+    varchar phone
 }
 Features ||--|{ Property : has
 Features{
