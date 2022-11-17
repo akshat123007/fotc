@@ -18,12 +18,12 @@ Users{
 Features ||--|{ Property : has
 Features{
     integer id PK
-    varchar property "NOT NULL" "Property as in Bing Maps API"
-    numeric latitude "NOT NULL" "Latitude of property as per Bing Maps"
-    numeric longitude "NOT NULL" "Longitude of property as per Bing Maps"
-    varchar fullname "NOT NULL" "Full registered name of property"
-    varchar featurename "NOT NULL" "Features available at property"
-    varchar images "NOT NULL" "path to the image saved on local filesystem"
+    varchar property "Property as in Bing Maps API"
+    numeric latitude "Latitude of property as per Bing Maps"
+    numeric longitude "Longitude of property as per Bing Maps"
+    varchar fullname "Full registered name of property"
+    varchar featurename "Features available at property"
+    varchar images "path to the image saved on local filesystem"
     integer u_id FK
 }
 ```
