@@ -1,4 +1,6 @@
 # FoTc
+Friends of the Community - A web-portal to lookup accessible locations
+![Accessibility feature image](https://user-images.githubusercontent.com/105162599/202505969-d650c565-b919-47bb-8df2-c12982179fb9.png)
 #### Video Demo: [watch here on YouTube](https://youtu.be/0eyZIVjKnn8)
 #### Research paper: [Read here on IRJMETS website](https://www.irjmets.com/paperdetail.php?paperId=ad8ff81be5bdbbe0f7611f4b8bba1855&title=Web+assistance+for+physically+disabled+people&authpr=Abhishek+Rawat)
 #### Description:
@@ -54,7 +56,6 @@ Here you can search your desired location by typing location name in destination
 ###### Check Accessibility
 This page provides you the information about the accessibility features of your desired destination's location. After search you will be provided accesibility features of that place with images and their name and at bottom your name, email id and contact number will also be displayed.
 
-# Feature's image![Accessibility feature image](https://user-images.githubusercontent.com/105162599/202505969-d650c565-b919-47bb-8df2-c12982179fb9.png)
 ###### Search Location
 This website search your desired location through bing maps. we have accessed the API key of bing maps and use it for our searching process. After getting the desired location you can choose either you can see it normal map format or you can also watch directions and all other places in satellite view also.You can search your desired location by just speech recognition, for that you just have to click on mic button.
 
