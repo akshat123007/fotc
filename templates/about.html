@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById('about').classList.add('active');
+	};
+</script>
+<div id="box1">
+	{% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+    {% endif %}
+	<link rel="stylesheet" href="/static/Css/about.css">
+	<div class="section1">
+		<div class="container1">
+			<div class="content-section1">
+				<div class="title1">
+					<h1>About Us</h1>
+				
+				</div>
+				<div class="content1">
+					<h3>Friends of the Community(FoTc)</h3>
+					 <p>Fotc is the organisation which works for special communities and it is founded  by us.
+						We are engineering students named Abhishek Rawat, Aieshah Nasir, Akshat Singh Rathore and Akshat Singh Gour. 
+						We are developers and with our technical skills we try to make the life of special ones easy. </p>
+					<br>
+
+                        <h3> Smart Map for Disables</h3>
+                    </p>We've developed a web-based portal for storing and sharing of  information about accessible buildings/ public places/ offices. 
+					The system  also stores their physical locations so that the information can also be shown on a on-screen map. The system stores and share information about the accessibility features viz. provisions of ramps, handrails, accessible toilets, Braille signage, accessible counters, lifts, wheelchairs etc and will store and share photographs and videos of such places.
+					 Display of information to the disabled persons as per search criteria on a map based platform bing maps.  
+					After a disabled person chooses a building/ location he/ she wants to travel using this system,
+					 the map will guide him/her with suitable voice-based announcements (along with showing directions on the bing map)
+					  to navigate and reach the place. 
+					Centralized server for storing of information with security features.</p>
+                    </div>
+                </div>
+			</div>
+			<div class="image-section1">
+				<img src="/static/logopr.png">
+				
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

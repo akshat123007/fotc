@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contact Us
+{% endblock %}
+
+{% block main %}
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById('contact').classList.add('active');
+	};
+</script>
+<link rel="stylesheet" href="/static/Css/contact.css">
+<div class="container">
+    <div class="formWraper">
+        <div class="formDiv">
+            <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title">Contact Us</h5>
+                  <p class="card-text">Hey! We are glad to start a conversation with you! Please fill up the contact form and we'll get back to you as soon as possible.</p>
+                </div>
+              </div>
+    <form method="Post" action="/contact">
+        {{ form.hidden_tag() }}
+        <fieldset class="formGroup">
+            <div class="formGroup">
+                {{ form.name.label(class="form-control-label container") }}
+                
+                {% if form.name.errors %}
+
+                {{ form.name(class="form-control form-control-lg is-valid container",placeholder="like Bill Gates") }}
+                <div class="invalid-feedback">
+                    {% for error in form.name.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.name(class="form-control form-control-lg container",placeholder="like Bill Gates")}}
+                {% endif %}
+
+            </div>
+
+            <div class="formGroup">
+              {{ form.email.label(class="form-control-label container") }}
+              
+              {% if form.email.errors %}
+
+              {{ form.email(class="form-control form-control-lg is-valid container",placeholder='like bill@gatesnotes.com') }}
+              <div class="invalid-feedback">
+                  {% for error in form.email.errors %}
+                  <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+              {% else %}
+                  {{ form.email(class="form-control form-control-lg container",placeholder='like bill@gatesnotes.com')}}
+              {% endif %}
+            </div>
+
+            <div class="formGroup">
+                {{ form.subject.label (class="form-control-label container")}} 
+                
+                {% if form.subject.errors %}
+
+                {{ form.subject(class="form-control form-control-lg is-valid container",placeholder='your subject ...') }}
+                <div class="invalid-feedback">
+                    {% for error in form.subject.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.subject(class="form-control form-control-lg container",placeholder='your subject ...')}}
+                {% endif %}
+            </div>
+
+            <div class="formGroup">
+              {{ form.message.label(class="form-control-label container")}} 
+
+              {% if form.message.errors %}
+
+                {{ form.message(class="form-control form-control-lg is-valid container",placeholder='write your request ...') }}
+                <div class="invalid-feedback">
+                     {% for error in form.message.errors %}
+                     <span>{{ error }}</span>
+                     {% endfor %}
+                 </div>
+                {% else %}
+                    {{ form.message(class="form-control form-control-lg container",placeholder='write your request ...')}}
+                {% endif %}
+            </div>
+       </fieldset>
+       {{form.submit(class="btns btn-outline-info container")}}
+</form>
+    </div>
+</div>
+</div>
+{% endblock %}

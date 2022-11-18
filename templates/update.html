@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update profile details
+{% endblock %}
+
+{% block main %}
+    <form action="/update" method="post">
+        <label for="nname">New Name</label><input type="text" name="nname" id="nname" required>
+        <label for="confirmName">Confirm Name</label><input type="text" name="confirmName" id="confirmName">
+        <button type="submit" id="nameCh" name="nameCh">Change Name</button>
+    </form>
+    <form action="/update" method="post">
+        <label for="nmail">New Email id</label><input type="text" name="nmail" id="nmail" required>
+        <label for="confirmMail">Confirm Email</label><input type="text" name="confirmMail" id="confirmMail">
+        <button type="submit" id="emailCh" name="emailCh">Change Email</button>
+    </form>
+    <form action="/update" method="post">
+        <label for="npassword">New Password</label><input type="text" name="npassword" id="npassword" required>
+        <label for="confirmPassword">Confirm Password</label><input type="text" name="confirmPassword" id="confirmPassword">
+        <button type="submit" id="passCh" name="passCh">Change Password</button>
+    </form>
+{% endblock %}

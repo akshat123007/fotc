@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sign In
+{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="/static/Css/login.css">
+<div class="container">
+    <div class="formWraper">
+        <div class="formDiv">
+    <form method="post" action="/login">
+        {{ form.hidden_tag() }}
+        <legend class="border-bottom mb-4">Log In</legend>
+        <fieldset class="formGroup">
+            <div class="formgroup">
+                <i class="fas fa-user"></i>
+                {{ form.username.label(class="form-control-label container") }}
+                {% if form.username.errors %}
+
+                {{ form.username(class="form-control form-control-lg is-valid container") }}
+                
+                <div class="invalid-feedback">
+                    {% for error in form.username.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.username(class="form-control form-control-lg container")}}
+                {% endif%}
+            </div>
+            <div class="formGroup">
+                
+                <i class="fas fa-lock"></i>
+                {{ form.password.label(class="form-control-label container") }}
+                {% if form.password.errors %}
+
+                {{ form.password(class="form-control form-control-lg is-valid container") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.password(class="form-control form-control-lg container")}}
+                {% endif%}
+            </div>
+           
+        </fieldset>
+        &emsp;                
+        {{form.submit(class="btns btn-outline-info container")}}
+
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register Features
+{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="static/css/register.css">
+<div class="container">
+    <div class="formWraper">
+        <div class="formDiv">
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <legend class="border-bottom mb-4">Register Features</legend>
+        <fieldset class="formGroup">
+            <div class="formGroup">
+                <i class="fas fa-building"></i>
+                <label for="searchBox" class="form-control-label container">Property</label>
+                <div id='searchBoxContainer'><input type= 'text' id= 'searchBox' name="searchBox"/></div>
+                <div id='printoutPanel'><small><a target="_blank" rel="noopener" href="https://www.bingplaces.com/Help#addSmallBusiness">Can't find your business? </a></small><br></div>
+                <script type='text/javascript'>
+                    function loadMapScenario() {
+                        Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', {
+                            callback: onLoad,
+                            errorCallback: onError
+                        });
+                        function onLoad() {
+                            var options = { maxResults: 5, businessSuggestions: true };
+                            var manager = new Microsoft.Maps.AutosuggestManager(options);
+                            manager.attachAutosuggest('#searchBox', '#searchBoxContainer', selectedSuggestion);
+                        }
+                        function onError(message) {
+                            document.getElementById('printoutPanel').innerHTML = message;
+                        }
+                        function selectedSuggestion(suggestionResult) {
+                            document.getElementById('latitude').value = suggestionResult.location.latitude;
+                            document.getElementById('longitude').value = suggestionResult.location.longitude;
+                        }
+                        
+                    }
+                </script>
+                <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=yourBingMapsAPIKey&callback=loadMapScenario' async defer></script>
+        
+            </div>
+
+            <div class="formGroup">
+                <i class="fas fa-user"></i>
+                {{ form.lat.label(class="form-control-label container") }}
+
+                {% if form.lat.errors %}
+
+                {{ form.lat(class="form-control form-control-lg is-valid container", readonly="readonly", id="latitude") }}
+                <div class="invalid-feedback">
+                    {% for error in form.lat.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.lat(class="form-control form-control-lg container" , readonly="readonly", id="latitude")}}
+                {% endif %} 
+
+            </div>
+
+            <div class="formGroup">
+                <i class="fas fa-user"></i>
+                {{ form.lon.label(class="form-control-label container") }}
+
+                {% if form.lon.errors %}
+
+                {{ form.lon(class="form-control form-control-lg is-valid container", readonly="readonly", id="longitude") }}
+                <div class="invalid-feedback">
+                    {% for error in form.lon.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.lon(class="form-control form-control-lg container", readonly="readonly", id="longitude")}}
+                {% endif %} 
+
+            </div>
+
+            <div class="formGroup">
+                <i class="fas fa-user"></i>
+                {{ form.Fullname.label(class="form-control-label container") }}
+
+                {% if form.Fullname.errors %}
+
+                {{ form.Fullname(class="form-control form-control-lg is-valid container") }}
+                <div class="invalid-feedback">
+                    {% for error in form.Fullname.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.Fullname(class="form-control form-control-lg container")}}
+                {% endif %} 
+
+            </div>
+            
+            <div class="formGroup">
+                <i class="fas fa-wheelchair"></i>
+                {{ form.Featurename.label(class="form-control-label container") }}
+
+                {% if form.Featurename.errors %}
+
+                {{ form.Featurename(class="form-control form-control-lg is-valid container") }}
+                <div class="invalid-feedback">
+                    {% for error in form.Featurename.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.Featurename(class="form-control form-control-lg container")}}
+                {% endif %}
+
+            </div>
+
+            <div class="formGroup">
+                {{ form.File.label(class="form-control-label container") }}
+
+                {% if form.File.errors %}
+                    {{ form.File(class="form-control form-control-lg is-valid container") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.File.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.File(class="form-control form-control-lg container")}}
+                {% endif%}
+            </div>
+        </fieldset>
+        {{form.submit(class="btns btn-outline-info container")}}
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

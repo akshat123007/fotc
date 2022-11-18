@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block title %}
+    Maps
+{% endblock %}
+{% block main %}
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById('navigate').classList.add('active');
+	};
+</script>
+    
+            <div id='printoutPanel'></div>
+            <div id='searchBoxContainer'>
+                <input type="text" name="searchBox" id="searchBox" placeholder="Type or Speak Something">
+                <button id="searchbox" onclick="record()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                        <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+                      </svg>
+                </button>
+    <!-- Below is the script for voice recognition and conversion to text-->
+    <script>
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            // recognition.lang = "en-GB";
+            recognition.lang = "en";
+            recognition.onresult = function(event) {
+                // console.log(event);
+                document.getElementById('searchBox').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+        }
+    </script>
+            </div>
+            <div id='myMap' style='width: 100vw; height: 100vh;'></div>
+            <script type='text/javascript'>
+                function loadMapScenario() {
+                    var navigationBarMode = Microsoft.Maps.NavigationBarMode;
+                    var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                        /* No need to set credentials if already passed in URL */
+                        // center: new Microsoft.Maps.Location(47.624527, -122.355255),
+                        zoom: 8,
+                        navigationBarMode: navigationBarMode.compact,
+                        supportedMapTypes: [Microsoft.Maps.MapTypeId.road, Microsoft.Maps.MapTypeId.aerial, Microsoft.Maps.MapTypeId.grayscale, Microsoft.Maps.MapTypeId.canvasLight],
+                        // showSearchBar: true
+                    });
+
+                    //Request the user's location
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var loc = new Microsoft.Maps.Location(
+                            position.coords.latitude,
+                            position.coords.longitude);
+                        //Add a pushpin at the user's location.
+                        var pin = new Microsoft.Maps.Pushpin(loc);
+                        map.entities.push(pin);
+                        //Center the map on the user's location.
+                        map.setView({ center: loc, zoom: 15 });
+                    });
+                    Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', function () {
+                        var manager = new Microsoft.Maps.AutosuggestManager({ map: map });
+                        manager.attachAutosuggest('#searchBox', '#searchBoxContainer', selectedSuggestion);
+                    });
+                    function selectedSuggestion(result) {
+                        //Remove previously selected suggestions from the map.
+                        map.entities.clear();
+                        //Show the suggestion as a pushpin and center map over it.
+                        var pin = new Microsoft.Maps.Pushpin(result.location);
+                        map.entities.push(pin);
+                        map.setView({ bounds: result.bestView });
+                    }
+                    Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+                        var searchVal = document.querySelector("#searchbar").value;
+                        var searchManager = new Microsoft.Maps.Search.SearchManager(map);
+                        var requestOptions = {
+                            bounds: map.getBounds(),
+                            where: searchVal,
+                            callback: function (answer, userData) {
+                                map.setView({ bounds: answer.results[0].bestView });
+                                map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
+                            }
+                        };
+                        searchManager.geocode(requestOptions);
+                    });
+                    
+                }
+            </script>
+            <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=yourBingMapsAPIKey&callback=loadMapScenario' async defer></script>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+
+{% block title %}
+       Profile
+{% endblock %}
+
+{% block main %}
+       <script>
+              var actions = document.getElementsByName("actions");
+              var fupON = document.getElementById("fupON");
+              var fupEm = document.getElementById("fupEm");
+              var fupPh = document.getElementById("fupPh");
+              var fupPN = document.getElementById("fupPN");
+              var fdelAcc = document.getElementById("fdelAcc");
+              var fdelF = document.getElementById("fdelF");
+
+              fupON.style.display = 'block';
+              fupEm.style.display = 'none';
+              fupPh.style.display = 'none';
+              fupPN.style.display = 'none';
+              fdelAcc.style.display = 'none';
+              fdelF.style.display = 'none';
+
+              for(var i = 0; i < actions.length; i++) {
+                     actions[i].onclick = function() {
+                            var val = this.value;
+                            if(val == 'upON') {
+                                   fupON.style.display = 'block';
+                                   fupEm.style.display = 'none';
+                                   fupPh.style.display = 'none';
+                                   fupPN.style.display = 'none';
+                                   fdelAcc.style.display = 'none';
+                                   fdelF.style.display = 'none';
+                            }
+                            else if (val == 'upEm'){
+                                   fupON.style.display = 'none';
+                                   fupEm.style.display = 'block';
+                                   fupPh.style.display = 'none';
+                                   fupPN.style.display = 'none';
+                                   fdelAcc.style.display = 'none';
+                                   fdelF.style.display = 'none';
+                            }
+                            else if (val == 'upPh'){
+                                   fupON.style.display = 'none';
+                                   fupEm.style.display = 'none';
+                                   fupPh.style.display = 'block';
+                                   fupPN.style.display = 'none';
+                                   fdelAcc.style.display = 'none';
+                                   fdelF.style.display = 'none';
+                            }
+                            else if (val == 'upPN'){
+                                   fupON.style.display = 'none';
+                                   fupEm.style.display = 'none';
+                                   fupPh.style.display = 'none';
+                                   fupPN.style.display = 'block';
+                                   fdelAcc.style.display = 'none';
+                                   fdelF.style.display = 'none';
+                            }
+                            else if (val == 'delAcc'){
+                                   fupON.style.display = 'none';
+                                   fupEm.style.display = 'none';
+                                   fupPh.style.display = 'none';
+                                   fupPN.style.display = 'none';
+                                   fdelAcc.style.display = 'block';
+                                   fdelF.style.display = 'none';
+                            }
+                            else{
+                                   fupON.style.display = 'none';
+                                   fupEm.style.display = 'none';
+                                   fupPh.style.display = 'none';
+                                   fupPN.style.display = 'none';
+                                   fdelAcc.style.display = 'none';
+                                   fdelF.style.display = 'block';
+                            }
+                     }
+              }
+       </script>
+
+       <h1>Welcome back, {{ session["username"] }}</h1>
+       <br>
+              Update Owner's Details: <br>
+              <input type="radio" id="upON" name="actions" value="upON" ><label for="upON">Update Owner's Name</label><br>
+              <input type="radio" id="upEm" name="actions" value="upEm"><label for="upEm">Update Email ID</label><br>
+              <input type="radio" id="upPh" name="actions" value="upPh"><label for="upPh">Update Phone Number</label><br>
+              <input type="radio" id="delAcc" name="actions" value="delAcc"><label for="delAcc">Delete your Account</label><br><br>
+              Update Property Details: <br>
+              <input type="radio" id="upPN" name="actions" value="upPN"><label for="upPN">Update your Property's Name</label><br>
+              <input type="radio" id="delF" name="actions" value="delF"><label for="delF">Delete Features</label><br>
+
+              <form action="/update" method="post" id="fupON">
+                     <div>
+                            <label for="owner">Current Name</label><input type="text" name="owner" id="owner" value="{{owner[0]}}" readonly>
+                            <label for="nowner">New Name</label><input type="text" name="nowner" id="nowner" placeholder="Enter updated name for owner">
+                            <button type="submit">Update Name</button>
+                     </div>
+              </form>
+
+              <form action="/update" method="post" id="fupEm">
+                     <div>
+                            <label for="owner">Current Name</label><input type="text" name="owner" id="owner" value="{{owner[0]}}" readonly>
+                            <label for="nowner">New Name</label><input type="text" name="nowner" id="nowner" placeholder="Enter updated name for owner">
+                            <button type="submit">Update Name</button>
+                     </div>
+              </form>
+
+              <form action="/update" method="post" id="fupPh">
+                     <div>
+                            <label for="owner">Current Name</label><input type="text" name="owner" id="owner" value="{{owner[0]}}" readonly>
+                            <label for="nowner">New Name</label><input type="text" name="nowner" id="nowner" placeholder="Enter updated name for owner">
+                            <button type="submit">Update Name</button>
+                     </div>
+              </form>
+
+              <form action="/account" method="post" id="fdelAcc">
+                     <div>
+                            <label for="owner">Current Name</label><input type="text" name="owner" id="owner" value="{{owner[0]}}" readonly>
+                            <label for="nowner">New Name</label><input type="text" name="nowner" id="nowner" placeholder="Enter updated name for owner">
+                            <button type="submit">Update Name</button>
+                     </div>
+              </form>
+
+              <form action="/update" method="post" id="fupPN">
+                     <div>
+                            <label for="owner">Current Name</label><input type="text" name="owner" id="owner" value="{{owner[0]}}" readonly>
+                            <label for="nowner">New Name</label><input type="text" name="nowner" id="nowner" placeholder="Enter updated name for owner">
+                            <button type="submit">Update Name</button>
+                     </div>
+              </form>
+              <form action="/account" method="post" id="fdelF">
+                     <div>
+                            <label for="owner">Current Name</label><input type="text" name="owner" id="owner" value="{{owner[0]}}" readonly>
+                            <label for="nowner">New Name</label><input type="text" name="nowner" id="nowner" placeholder="Enter updated name for owner">
+                            <button type="submit">Update Name</button>
+                     </div>
+              </form>
+{% endblock %}
